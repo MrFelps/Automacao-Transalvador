@@ -19,13 +19,13 @@ O fluxo de automação segue os seguintes passos:
 
 ## Tecnologias e Bibliotecas Utilizadas
 
-* **Linguagem:** Python
-* **Visão Computacional (OCR):** `Tesseract OCR`, `pytesseract`
-* **Manipulação de Imagem:** `Pillow`
-* **Análise de Dados:** `Pandas`, `NumPy`
-* **Busca por Similaridade:** `RapidFuzz`
-* **Automação e Simulação de Interação:** `mousekey`
-* **Visualização no Terminal:** `rich`
+- **Linguagem:** Python
+- **Visão Computacional (OCR):** `Tesseract OCR`, `pytesseract`
+- **Manipulação de Imagem:** `Pillow`
+- **Análise de Dados:** `Pandas`, `NumPy`
+- **Busca por Similaridade:** `RapidFuzz`
+- **Automação e Simulação de Interação:** `mousekey`
+- **Visualização no Terminal:** `rich`
 
 ## Como Usar o Projeto
 

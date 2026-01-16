@@ -2,7 +2,7 @@
 
 ## 📋 Descrição do Projeto
 
-Este projeto é uma solução de **RPA (Robotic Process Automation)** desenvolvida em Python para realizar consultas em massa de veículos (RENAVAM) no portal TransOnline. 
+Este projeto é uma solução de **RPA (Robotic Process Automation)** desenvolvida em Python para realizar consultas em massa de veículos (RENAVAM) no portal TransOnline.
 
 Diferente de bots tradicionais que buscam elementos ocultos no HTML (Web Scraping puro), o **Doctor Strange** utiliza uma abordagem híbrida com **Visão Computacional**. Ele "enxerga" a tela do computador como um humano, identifica campos de formulário e desafios de Captcha visualmente, e interage através de simulação de mouse humanizada.
 
@@ -24,6 +24,24 @@ O robô opera em um loop contínuo inteligente, seguindo as etapas abaixo para c
 
 ---
 
+## 🎯 Módulo de Calibragem: TesteMira (Sandbox)
+
+### Para que serve?
+O script `TesteMira.py` atua como um **Ambiente de Simulação Estática**. Antes de conectar o robô ("máquina principal") ao site real da Transalvador, utilizamos este módulo para validar a precisão dos algoritmos de visão computacional.
+
+Ele serve como um "campo de tiro" seguro: se a mira estiver desalinhada, corrigimos o código aqui, sem risco de enviar cliques errados para o site, o que poderia alertar sistemas de segurança (WAF) ou bloquear o IP da empresa.
+
+### ⚙️ Como é a Interação?
+Diferente do robô principal, o TesteMira não acessa a internet.
+1.  **Input:** Ele recebe uma imagem estática (`printscreen`) da tela do usuário.
+2.  **Processamento:** O script roda toda a lógica de reconhecimento (OCR + Regex) sobre essa imagem.
+3.  **Simulação Visual:** O mouse se move fisicamente sobre a imagem estática, "fingindo" clicar nos campos.
+4.  **Diagnóstico:** O terminal exibe se o alvo foi encontrado e qual a confiança (%) da leitura, permitindo ajustes finos nas coordenadas (`OFFSET`) antes da execução real.
+
+> **Resumo:** O TesteMira garante que a "máquina" só entre em campo quando já sabe exatamente onde chutar.
+
+---
+
 ## 🛠️ Tecnologias e Bibliotecas Utilizadas
 
 * **Linguagem:** Python 3.x
@@ -42,9 +60,6 @@ O robô opera em um loop contínuo inteligente, seguindo as etapas abaixo para c
 Para evitar o "banimento" do IP da empresa, o código implementa:
 * **Fadiga Simulada:** O robô fica "cansado" após X consultas, aumentando os intervalos de espera.
 * **Variação de Movimento:** Nunca clica no mesmo pixel exato; usa `random.uniform` para criar micro-variações nas coordenadas.
-
-### 🎯 Teste de Mira (Calibragem)
-Inclui um módulo auxiliar (`TesteMira.py`) que permite validar as coordenadas em um ambiente estático (Print Screen) antes da execução real, prevenindo cliques erráticos em produção.
 
 ### 🔒 Segurança de Dados
 O projeto segue rigorosas práticas de segurança:

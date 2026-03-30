@@ -6,7 +6,7 @@ Este projeto é uma solução de **RPA (Robotic Process Automation)** desenvolvi
 
 Diferente de bots tradicionais que buscam elementos ocultos no HTML (Web Scraping puro), o **Doctor Strange** utiliza uma abordagem híbrida com **Visão Computacional**. Ele "enxerga" a tela do computador como um humano, identifica campos de formulário e desafios de Captcha visualmente, e interage através de simulação de mouse humanizada.
 
-O objetivo principal é eliminar o trabalho repetitivo da equipe de Operações da Frota 162, garantindo velocidade, resiliência contra bloqueios (WAF) e precisão de dados.
+O objetivo principal é eliminar o trabalho repetitivo da equipe de Operações, garantindo velocidade, resiliência contra bloqueios (WAF) e precisão de dados.
 
 ---
 
